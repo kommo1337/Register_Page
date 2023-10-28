@@ -33,7 +33,10 @@
             <!--Inputs-->
             <StackPanel VerticalAlignment="Top" Margin="15,70,15,0"  Grid.Row="1"  >
 
-                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Клиент" Margin="0 5 0 10" FontSize="16" Name="ClientCb"/>
+                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Клиент" Margin="0 5 0 10" FontSize="16" Name="ClientCb"
+                            ItemsSource="{Binding Client}" DisplayMemberPath="Name"
+                SelectedValuePath="ClientId"
+                         SelectedValue="{Binding Path=ClientId}"/>
                 <TextBox Name="GosNomerTB" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="ГосНомер"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
 
 

@@ -11,5 +11,10 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

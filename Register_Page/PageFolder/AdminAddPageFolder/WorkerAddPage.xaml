@@ -33,7 +33,10 @@
             <!--Inputs-->
             <StackPanel VerticalAlignment="Top" Margin="15,70,15,0"  Grid.Row="1"  >
 
-                <ComboBox Name="PostCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Должность" Margin="0 5 0 10" FontSize="16"/>
+                <ComboBox Name="PostCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Должность" Margin="0 5 0 10" FontSize="16"
+                            ItemsSource="{Binding Post}" DisplayMemberPath="PostName"
+                        SelectedValuePath="PostId"
+                            SelectedValue="{Binding Path=PostId}"/>
                 <TextBox Name="PhoneTb" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Телефон"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
 
 

@@ -5,32 +5,69 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Register_Page.PageFolder.AdminEditPageFolder"
                         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      mc:Ignorable="d" 
-      d:DesignHeight="520" d:DesignWidth="400"
+                 mc:Ignorable="d" 
+      d:DesignHeight="520" d:DesignWidth="680"
        >
+    <Border CornerRadius="30" Background="White" Grid.ColumnSpan="2" >
 
-    <Grid x:Name="MyGrid">
-        <!--Close Icon-->
-        <Border CornerRadius="10" Background="White">
+        <Grid x:Name="MyGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Close Icon-->
+            <StackPanel Panel.ZIndex="3" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="10" >
+                <Image Source="/Images/img.png" Width="70" Height="70"  />
+
+
+            </StackPanel>
+            <TextBlock Text="Редактирование работника" Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="32"   Panel.ZIndex="5"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+
             <!--Inputs-->
-            <StackPanel VerticalAlignment="Center" Margin="10">
-                <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Имя"  Margin="0 27 0 27" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16" materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" />
-                <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Фамилия"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" FontSize="16" />
-                <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество"  Margin="0 27 0 27" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
-                <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Почта"  Margin="0 5 0 27" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
-                <WrapPanel Margin="0 7 0 5" >
-                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Дата рождения" Foreground="Gray"/>
-                    <DatePicker Style="{StaticResource MaterialDesignDatePicker}" HorizontalAlignment="Right" Margin="260 0 0 0"/>
-                </WrapPanel>
-                <Separator  Foreground="#C5C8CC"/>
-                <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Телефон"  Margin="0 5 0 20" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+            <StackPanel VerticalAlignment="Top" Margin="15,70,15,0"  Grid.Row="1"  >
+
+                <ComboBox Name="PostCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Должность" Margin="0 5 0 10" FontSize="16"
+                            ItemsSource="{Binding Post}" DisplayMemberPath="PostName"
+                        SelectedValuePath="PostId"
+                            SelectedValue="{Binding Path=PostId}"/>
+                <TextBox Name="PhoneTb" Text="{Binding Phone}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Телефон"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
 
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Добавить" Background="#FFFFD500"  Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120" BorderBrush="#FFF3CD1C"/>
+                <StackPanel   >
+                    <TextBox Name="PasportTb" Text="{Binding Pasport}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Паспорт" Margin="0 5 0 10"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
+
                 </StackPanel>
+
+
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="15,70,15,15" Grid.Row="1" >
+                <TextBox Name="NameTb" Text="{Binding Name}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Имя"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+                <TextBox Name="SurNameTb" Text="{Binding Surname}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Фамилия"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+                <TextBox Name="TherdNameTb" Text="{Binding Therdname}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+
             </StackPanel>
 
-        </Border>
-    </Grid>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="2" Width="208">
+                <Button Content="Редактировать" Background="#FFFFD500" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="208" BorderBrush="#FFF3CD1C" Click="Button_Click"/>
+            </StackPanel>
+
+            <Border Grid.ColumnSpan="2" Background="#FFFFD500" CornerRadius="30 30 0 0">
+
+
+            </Border>
+
+
+
+        </Grid>
+    </Border>
 </Page>

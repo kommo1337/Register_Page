@@ -40,7 +40,7 @@
         <TextBlock Text="Авто" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
         <!--Add Button-->
-        <Button Style="{StaticResource addButton}" x:Name="AddBTN">
+        <Button Style="{StaticResource addButton}" x:Name="AddBTN" Click="AddBTN_Click">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                 <TextBlock Text="Добавить авто"/>
@@ -68,7 +68,7 @@
         </Grid>
         <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding AutoId}"/>
                 <DataGridTemplateColumn Header="Клиент" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -77,15 +77,15 @@
                                     <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
                                 </Border>
 
-                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Client.Name}" VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="ГосНомер" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="VIN" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Пробег" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Год выпуска" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="ГосНомер" Binding="{Binding GosNomer}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="VIN" Binding="{Binding VIN}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Пробег" Binding="{Binding Mileage}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Год выпуска" Binding="{Binding Age}" IsReadOnly="True" Width="*"/>
                 
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -103,10 +103,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <!--Members Data Grid-->
-
-        <!--Pagingation Section-->
 
     </Grid>
 
