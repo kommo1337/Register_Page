@@ -48,5 +48,15 @@ namespace Register_Page.PageFolder.AdminPageFolder
             (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new WorkerAddPage());
 
         }
+
+        private void CloseWindowBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MinimizeWindowBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -175,6 +175,12 @@
     <Compile Include="Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\AdminAddPageFolder\AddUserPage.xaml.cs">
+      <DependentUpon>AddUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminEditPageFolder\EditUserPage.xaml.cs">
+      <DependentUpon>EditUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MyOption.xaml.cs">
       <DependentUpon>MyOption.xaml</DependentUpon>
     </Compile>
@@ -215,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PageFolder\AdminAddPageFolder\AddUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\AdminAddPageFolder\AddZakazPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,6 +244,10 @@
     <Page Include="PageFolder\AdminEditPageFolder\EditServicePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageFolder\AdminEditPageFolder\EditUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\AdminEditPageFolder\EditWorkerPage.xaml">
       <Generator>MSBuild:Compile</Generator>

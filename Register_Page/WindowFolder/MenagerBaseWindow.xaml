@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Register_Page.WindowFolder"
                        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
-        Background="Transparent" WindowStyle="None">
+        Background="Transparent" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" Title="MenagerWindow">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
@@ -44,22 +44,22 @@
                         <Separator Margin="25" Background="Yellow" DockPanel.Dock="Top" Height="0.8"/>
 
                         <!--Menu Buttons-->
-                        <StackPanel DockPanel.Dock="Top" >
-                            <Button Style="{StaticResource menuButton}">
+                        <StackPanel DockPanel.Dock="Top" x:Name="BorderButtonSP">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Авто"/>
+                                    <TextBlock Text="Авто" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="CalendarClock" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Клиенты"/>
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}" Background="#FFFFD500" Foreground="White">
+                            <Button Style="{StaticResource menuButton}"  Foreground="White" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Заказы"/>
@@ -69,7 +69,7 @@
 
                         </StackPanel>
 
-                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="Button_Click_3">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Выйти"/>
@@ -79,6 +79,15 @@
                     </DockPanel>
                 </Border>
 
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
+
+                </Frame>
+                <Frame x:Name="MainFrame2" NavigationUIVisibility="Hidden" Margin="100">
+
+                </Frame>
             </Grid>
 
             <!--Main Section-->
