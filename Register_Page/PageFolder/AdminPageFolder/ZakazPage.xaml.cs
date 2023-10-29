@@ -43,7 +43,16 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void deleteInGrid_Click(object sender, RoutedEventArgs e)
         {
+            Order auto = membersDataGrid.SelectedItem as Order;
 
+            DBEntities.GetContext().Order
+                        .Remove(membersDataGrid.SelectedItem as Order);
+            DBEntities.GetContext().SaveChanges();
+
+            MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
+
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+                .Order.ToList().OrderBy(u => u.OrderId);
         }
 
         private void CloseWindowBTN_Click(object sender, RoutedEventArgs e)
