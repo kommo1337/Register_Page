@@ -1,6 +1,7 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
+using Register_Page.WindowFolder;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -36,35 +37,29 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             try
             {
 
-                string dateString = BthPick.SelectedDate.ToString();
-                string format = "dd.MM.yyyy";
 
-                if (DateTime.TryParseExact(dateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateOfBirth))
+                DBEntities.GetContext().Order.Add(new Order()
                 {
-                    DBEntities.GetContext().Order.Add(new Order()
-                    {
-                        StartDate = dateOfBirth,
-                        ClientId = Int32.Parse(ClientCb.SelectedValue.ToString()),
-                        AutoId = Int32.Parse(CarCb.SelectedValue.ToString()),
-                        StatusId = Int32.Parse(StatusCb.SelectedValue.ToString()),
-                        ServiceId = Int32.Parse(RabotaCb.SelectedValue.ToString()),
-                        WorkerId = Int32.Parse(WorkerCb.SelectedValue.ToString())
+                    StartDate = DateTime.Parse(BthPick.Text),
+                    ClientId = Int32.Parse(ClientCb.SelectedValue.ToString()),
+                    AutoId = Int32.Parse(CarCb.SelectedValue.ToString()),
+                    StatusId = Int32.Parse(StatusCb.SelectedValue.ToString()),
+                    ServiceId = Int32.Parse(RabotaCb.SelectedValue.ToString()),
+                    WorkerId = Int32.Parse(WorkerCb.SelectedValue.ToString()),
+                    Price = 1
 
-                    });
+                }) ;
                     DBEntities.GetContext().SaveChanges();
-                    NavigationService.Navigate(new AvtoPage());
-                }
-                else
-                {
+                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ZakazPage());
+                
 
-                    MBClass.ShowErrorPopup("Ошибка: Неверный формат даты.", Application.Current.MainWindow);
 
-                }
             }
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-                throw;
+                
             }
 
         }

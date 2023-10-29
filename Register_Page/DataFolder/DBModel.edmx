@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Auto">
           <Key>
             <PropertyRef Name="AutoId" />
@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="ClientId" />
           </Key>
-          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Therdname" Type="nvarchar" MaxLength="30" />
@@ -32,12 +32,12 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClientId" Type="int" Nullable="false" />
           <Property Name="AutoId" Type="int" Nullable="false" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="ServiceId" Type="int" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
         </EntityType>
@@ -45,7 +45,7 @@
           <Key>
             <PropertyRef Name="PostId" />
           </Key>
-          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PostName" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Role">
@@ -93,14 +93,14 @@
           <Key>
             <PropertyRef Name="WorkerId" />
           </Key>
-          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Therdname" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Pasport" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="PostId" Type="int" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Adress" Type="nchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_Auto_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -273,8 +273,7 @@
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -314,7 +313,7 @@
           <Property Name="AutoId" Type="Int32" Nullable="false" />
           <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="ServiceId" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Auto" Relationship="Self.FK_Order_Auto" FromRole="Order" ToRole="Auto" />
@@ -387,7 +386,7 @@
           <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pasport" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PostId" Type="Int32" Nullable="false" />
-          <Property Name="Adress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adress" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Worker" FromRole="Worker" ToRole="Order" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Worker_Post" FromRole="Worker" ToRole="Post" />
         </EntityType>

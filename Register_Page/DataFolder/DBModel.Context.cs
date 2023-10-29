@@ -29,6 +29,7 @@ namespace Register_Page.DataFolder
             return context;
         }
 
+
         public DBEntities()
             : base("name=DBEntities")
         {

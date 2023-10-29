@@ -1,6 +1,7 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
+using Register_Page.WindowFolder;
 using System;
 using System.Linq;
 using System.Windows;
@@ -21,9 +22,12 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                .Client.ToList();
         }
 
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
 
+
+            
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
                 DBEntities.GetContext().Auto.Add(new Auto()
@@ -36,18 +40,15 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
 
                 });
                 DBEntities.GetContext().SaveChanges();
-                NavigationService.Navigate(new AvtoPage());
+                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new AvtoPage());
             }
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
                 throw;
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
+    }
     }
 }

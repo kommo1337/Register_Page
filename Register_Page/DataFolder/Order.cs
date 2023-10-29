@@ -19,7 +19,7 @@ namespace Register_Page.DataFolder
         public int AutoId { get; set; }
         public int StatusId { get; set; }
         public int ServiceId { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public System.DateTime StartDate { get; set; }
         public int WorkerId { get; set; }
     

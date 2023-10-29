@@ -28,19 +28,19 @@
         <!--Search Textbox-->
 
         <!--Top Buttons-->
-        <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
-            <Icon:PackIconMaterial Kind="Cog"/>
+        <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Name="CloseWindowBTN" Click="CloseWindowBTN_Click">
+            <Icon:PackIconMaterial Kind="WindowClose"/>
         </Button>
 
-        <Button Style="{StaticResource topButton}" Margin="0 0 55 0">
-            <Icon:PackIconMaterial Kind="Bell"/>
+        <Button Style="{StaticResource topButton}" Margin="0 0 55 0" Name="MinimizeWindowBTN" Click="MinimizeWindowBTN_Click">
+            <Icon:PackIconMaterial Kind="WindowMinimize"/>
         </Button>
 
         <!--Page Title-->
         <TextBlock Text="Сотрудники" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
         <!--Add Button-->
-        <Button Style="{StaticResource addButton}">
+        <Button Style="{StaticResource addButton}" Name="AddBtn" Click="AddBtn_Click">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                 <TextBlock Text="Добавить сотрудника"/>
@@ -68,7 +68,7 @@
         </Grid>
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding WorkerId}"/>
                 <DataGridTemplateColumn Header="Имя" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -82,22 +82,20 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Therdname}" IsReadOnly="True" Width="*"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Почта" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Паспорт" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Адресс" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Pasport}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Post.PostId}" IsReadOnly="True" Width="*"/>
 
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource gridEditButton}">
+                                <Button Style="{StaticResource gridEditButton}" Name="EditInGrid" Click="EditInGrid_Click">
                                     <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
-                                <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" Name="DeleteInGrid" Click="DeleteInGrid_Click">
                                     <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
                             </StackPanel>

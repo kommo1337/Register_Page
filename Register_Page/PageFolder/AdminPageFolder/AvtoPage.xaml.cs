@@ -25,7 +25,7 @@ namespace Register_Page.PageFolder.AdminPageFolder
         {
             if (membersDataGrid.SelectedItem == null)
             {
-                MBClass.ShowErrorPopup("Выбиерите заказ", Application.Current.MainWindow);
+                MBClass.ShowErrorPopup("Выбиерите автомобиль", Application.Current.MainWindow);
 
             }
             else
@@ -37,6 +37,16 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void DeleteInGridBTN_Click(object sender, RoutedEventArgs e)
         {
+            Auto auto = membersDataGrid.SelectedItem as Auto;
+
+            DBEntities.GetContext().Auto
+                        .Remove(membersDataGrid.SelectedItem as Auto);
+            DBEntities.GetContext().SaveChanges();
+
+            MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
+
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+                .Auto.ToList().OrderBy(u => u.AutoId);
 
         }
 
@@ -52,7 +62,8 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void AddBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new AddAutoPage());
+            (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
         }
     }
 }

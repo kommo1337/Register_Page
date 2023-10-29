@@ -69,11 +69,15 @@ namespace Register_Page.WindowFolder
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new AvtoPage());
+            (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ClientPage());
+            (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -86,11 +90,15 @@ namespace Register_Page.WindowFolder
         {
 
             MainFrame.Navigate(new UserPage());
+            (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new WorkerPage());
+            (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)

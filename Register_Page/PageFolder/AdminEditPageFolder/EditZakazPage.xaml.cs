@@ -1,6 +1,7 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
+using Register_Page.WindowFolder;
 using System;
 using System.Linq;
 using System.Windows;
@@ -14,7 +15,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
     public partial class EditZakazPage : Page
     {
         Order order = new Order();
-        public EditZakazPage()
+        public EditZakazPage(Order order)
         {
             InitializeComponent();
 
@@ -33,7 +34,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             this.order.OrderId = order.OrderId;
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -52,7 +53,9 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
                 order.WorkerId = index5;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
-                NavigationService.Navigate(new AvtoPage());
+                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ZakazPage());
+
             }
             catch (Exception ex)
             {
