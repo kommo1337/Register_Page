@@ -19,7 +19,7 @@
             <TextBox x:Name="LoginTb" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Логин"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16" materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" />
             <PasswordBox x:Name="PasswordTb" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" materialDesign:HintAssist.Hint="Пароль"  Margin="0 27 0 27" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="16" materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" />
 
-            <CheckBox Margin="0 40 0 20" FontSize="14" Foreground="Orange" Click="CheckBox_Click">
+            <CheckBox Margin="0 40 0 20" FontSize="14" Foreground="Orange" >
                 <TextBlock>
                             <Run Foreground="#b6b6b6">Я соглашаюсь с</Run>
                             <Run Foreground="#FFFFA400">условиями пользователя</Run>
