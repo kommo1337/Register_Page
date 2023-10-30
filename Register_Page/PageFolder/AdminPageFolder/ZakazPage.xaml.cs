@@ -21,6 +21,26 @@ namespace Register_Page.PageFolder.AdminPageFolder
                 ToList().OrderBy(u => u.OrderId);
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new AddZakazPage());
@@ -36,8 +56,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
             }
             else
             {
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditZakazPage(membersDataGrid.SelectedItem as Order));
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Navigate(new EditZakazPage(membersDataGrid.SelectedItem as Order));
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditZakazPage(membersDataGrid.SelectedItem as Order));
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
+                }
             }
         }
 
@@ -67,7 +96,7 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void AddBTN2_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
+            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddZakazPage());
             (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
         }
 

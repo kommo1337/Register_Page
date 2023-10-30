@@ -34,6 +34,26 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             this.order.OrderId = order.OrderId;
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -53,8 +73,17 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
                 order.WorkerId = index5;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ZakazPage());
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Navigate(new ZakazPage());
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ZakazPage());
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                }
 
             }
             catch (Exception ex)

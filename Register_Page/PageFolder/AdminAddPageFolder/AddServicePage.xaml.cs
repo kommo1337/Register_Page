@@ -19,6 +19,27 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             InitializeComponent();
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try

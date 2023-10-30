@@ -58,9 +58,9 @@
                         SelectedValuePath="ClientId"
                             SelectedValue="{Binding Path=ClientId}"/>
                 <ComboBox Name="CarCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Машина" Margin="0 27 0 0" FontSize="16"
-                            ItemsSource="{Binding Client}" DisplayMemberPath="Name"
+                            ItemsSource="{Binding Auto}" DisplayMemberPath="GosNomer"
                         SelectedValuePath="AutoId"
-                            SelectedValue="{Binding Path=ClientId}"/>
+                            SelectedValue="{Binding Path=AutoId}"/>
                 <ComboBox Name="StatusCb" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Статус" Margin="0 27 0 0" FontSize="16"
                               ItemsSource="{Binding Status}" DisplayMemberPath="StatusName"
                                 SelectedValuePath="StatusId"

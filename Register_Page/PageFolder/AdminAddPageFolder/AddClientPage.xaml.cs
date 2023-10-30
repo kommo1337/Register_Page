@@ -20,6 +20,25 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             InitializeComponent();
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -29,32 +48,35 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                 string dateString = BTHDatePick.SelectedDate.ToString();
                 string format = "dd.MM.yyyy";
 
-                if (DateTime.TryParseExact(dateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dateOfBirth))
-                {
+                
                     DBEntities.GetContext().Client.Add(new Client()
                     {
                         Name = NameTb.Text,
                         Surname = SurNameTb.Text,
                         Therdname = TherdNameTb.Text,
-                        Birthday = dateOfBirth,
+                        Birthday = DateTime.Parse(BTHDatePick.Text),
                         Email = EmailTb.Text,
                         Phone = PhoneTb.Text
                     });
                     DBEntities.GetContext().SaveChanges();
-                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
-                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ClientPage());
+
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Navigate(new ClientPage());
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Content = null;
                 }
                 else
                 {
-
-                    MBClass.ShowErrorPopup("Ошибка: Неверный формат даты.", Application.Current.MainWindow);
-
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ClientPage());
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
                 }
+
             }
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-                throw;
+                
             }
         }
     }

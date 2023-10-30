@@ -21,6 +21,27 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                  .Post.ToList();
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             try
@@ -36,8 +57,18 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                     Phone = PhoneTb.Text
                 });
                 DBEntities.GetContext().SaveChanges();
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new WorkerPage());
+
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Navigate(new WorkerPage());
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new WorkerPage());
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                }
 
 
             }

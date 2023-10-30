@@ -66,7 +66,7 @@
             <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" Height="27" VerticalAlignment="Center" />
 
         </Grid>
-        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" >
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" MouseDoubleClick="membersDataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding UserId}"/>
                 <DataGridTemplateColumn Header="Логин" IsReadOnly="True" Width="*">
@@ -82,7 +82,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" IsReadOnly="True" Width="*" Visibility="Collapsed" x:Name="PasswordDGD"/>
                 <DataGridTextColumn Header="Роль" Binding="{Binding Role.RoleId}" IsReadOnly="True" Width="*"/>
                 
 

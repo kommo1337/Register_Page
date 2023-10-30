@@ -21,6 +21,26 @@ namespace Register_Page.PageFolder.AdminPageFolder
                     ToList().OrderBy(u => u.ClientId);
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void AddBTN_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
@@ -29,8 +49,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void EditInGrid_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
-            (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditClientPage(membersDataGrid.SelectedItem as Client));
+            Window currentWindow = GetCurrentWindow() as Window;
+            if (currentWindow is MenagerBaseWindow)
+            {
+                ((MenagerBaseWindow)currentWindow).MainFrame2.Navigate(new EditClientPage(membersDataGrid.SelectedItem as Client));
+                ((MenagerBaseWindow)currentWindow).MainFrame.Content = null;
+            }
+            else
+            {
+                (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditClientPage(membersDataGrid.SelectedItem as Client));
+                (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
+            }
 
         }
 
@@ -60,7 +89,7 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void AddBTN2_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
+            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddClientPage());
             (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
         }
 

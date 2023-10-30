@@ -23,6 +23,26 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             this.client.ClientId = client.ClientId;
         }
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -39,8 +59,17 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
 
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ClientPage());
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Navigate(new ClientPage());
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new ClientPage());
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                }
             }
             catch (Exception ex)
             {

@@ -32,7 +32,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
 
             DataContext = user;
 
-            user.UserId = user.UserId;
+            this.user.UserId = user.UserId;
 
             ClientCb.ItemsSource = DBEntities.GetContext()
                     .Role.ToList();

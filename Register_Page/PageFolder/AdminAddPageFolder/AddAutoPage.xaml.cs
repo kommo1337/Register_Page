@@ -23,8 +23,27 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
         }
 
 
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
 
-            
+            return null;
+        }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -40,8 +59,18 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
 
                 });
                 DBEntities.GetContext().SaveChanges();
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new AvtoPage());
+
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Navigate(new AvtoPage());
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Navigate(new AvtoPage());
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
+                }
             }
             catch (Exception ex)
             {

@@ -94,15 +94,15 @@ namespace Register_Page
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Найдем анимацию по ключу
-            Storyboard animation = FindResource("Rect") as Storyboard;
-            if (animation != null)
-            {
-                // Устанавливаем обработчик события Completed для анимации
-                animation.Completed += Animation_Completed;
-                animation.RepeatBehavior = RepeatBehavior.Forever;
-                animation.Begin();
-            }
+            //Найдем анимацию по ключу
+            //Storyboard animation = FindResource("Rect") as Storyboard;
+            //if (animation != null)
+            //{
+            //    // Устанавливаем обработчик события Completed для анимации
+            //    animation.Completed += Animation_Completed;
+            //    animation.RepeatBehavior = RepeatBehavior.Forever;
+            //    animation.Begin();
+            //}
 
             Storyboard animation2 = FindResource("Gradient") as Storyboard;
             if (animation2 != null)

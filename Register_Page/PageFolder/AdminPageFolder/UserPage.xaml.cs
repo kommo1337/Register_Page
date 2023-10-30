@@ -30,8 +30,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void EditInGrid_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (membersDataGrid.SelectedItem!=null)
+            {
+                
+            
             (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
             (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditUserPage(membersDataGrid.SelectedItem as User));
+            }
+            else
+            {
+
+            }
         }
 
         private void DeleteInGrid_Click(object sender, RoutedEventArgs e)
@@ -56,6 +65,18 @@ namespace Register_Page.PageFolder.AdminPageFolder
         private void MinimizeWindowBTN_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 
+        }
+
+        private void membersDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (PasswordDGD.Visibility == Visibility.Visible)
+            {
+                PasswordDGD.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                PasswordDGD.Visibility = Visibility.Visible;
+            }
         }
     }
 }

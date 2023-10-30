@@ -14,12 +14,33 @@ namespace Register_Page.PageFolder.AdminPageFolder
     /// </summary>
     public partial class AvtoPage : Page
     {
+
         public AvtoPage()
         {
             InitializeComponent();
             
             membersDataGrid.ItemsSource = DBEntities.GetContext().Auto.
                     ToList().OrderBy(u => u.AutoId);
+        }
+
+        public Window GetCurrentWindow()
+        {
+            foreach (var window in App.Current.Windows)
+            {
+                if (window is Window currentWindow)
+                {
+                    if (currentWindow.Title == "MenagerWindow")
+                    {
+                        return currentWindow;
+                    }
+                    else if (currentWindow.Title == "BaseWindow")
+                    {
+                        return currentWindow;
+                    }
+                }
+            }
+
+            return null;
         }
 
         private void EditInGridBTN_Click(object sender, RoutedEventArgs e)
@@ -31,8 +52,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
             }
             else
             {
-                (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
-                (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditAuto(membersDataGrid.SelectedItem as Auto));
+                Window currentWindow = GetCurrentWindow() as Window;
+                if (currentWindow is MenagerBaseWindow)
+                {
+                    ((MenagerBaseWindow)currentWindow).MainFrame2.Navigate(new EditAuto(membersDataGrid.SelectedItem as Auto));
+                    ((MenagerBaseWindow)currentWindow).MainFrame.Content = null;
+                }
+                else
+                {
+                    (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditAuto(membersDataGrid.SelectedItem as Auto));
+                    (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
+                }
             }  
         }
 
@@ -69,8 +99,10 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void AddBTN2_Click(object sender, RoutedEventArgs e)
         {
-            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
-            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
+
+              (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
+                (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
