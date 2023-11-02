@@ -45,12 +45,12 @@ namespace Register_Page
 
                     Login = LoginTB.Text,
                     Password = PasswordTb.Password,
-                    RoleId = 1
+                    RoleId = 2
                 });
                 DBEntities.GetContext().SaveChanges();
 
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
-                new BaseWindow().Show();
+                new MenagerBaseWindow().Show();
 
                 foreach (Window window in Application.Current.Windows)
                 {

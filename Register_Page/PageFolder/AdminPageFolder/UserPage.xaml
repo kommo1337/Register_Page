@@ -63,7 +63,7 @@
                            Panel.ZIndex="1" Text="Поиск по пользователям ..."
                            Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
 
-            <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" Height="27" VerticalAlignment="Center" />
+            <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" Height="27" TextChanged="textBoxFilter_TextChanged" />
 
         </Grid>
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" MouseDoubleClick="membersDataGrid_MouseDoubleClick">

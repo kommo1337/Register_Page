@@ -58,5 +58,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
         {
 
         }
+
+        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+               .Worker.Where(u => u.Name
+               .StartsWith(textBoxFilter.Text))
+               .ToList().OrderBy(u => u.Name);
+            if (membersDataGrid.Items.Count <= 0)
+            {
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+            }
+        }
     }
 }

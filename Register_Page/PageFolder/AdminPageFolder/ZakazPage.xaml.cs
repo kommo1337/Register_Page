@@ -112,5 +112,38 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
             }
         }
+
+        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = DBEntities.GetContext().Order.
+                 ToList().OrderBy(u => u.OrderId);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+              .Order.Where(u => u.StatusId == 1)
+              .ToList().OrderBy(u => u.StatusId);
+            if (membersDataGrid.Items.Count <= 0)
+            {
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+              .Order.Where(u => u.StatusId == 2)
+              .ToList().OrderBy(u => u.StatusId);
+            if (membersDataGrid.Items.Count <= 0)
+            {
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+            }
+        }
     }
 }

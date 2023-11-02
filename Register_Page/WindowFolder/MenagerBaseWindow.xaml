@@ -78,6 +78,7 @@
 
                     </DockPanel>
                 </Border>
+                <Image HorizontalAlignment="Left" Height="79" Margin="10,10,0,10" VerticalAlignment="Top" Width="90" Source="/Images/img.png"/>
 
             </Grid>
 

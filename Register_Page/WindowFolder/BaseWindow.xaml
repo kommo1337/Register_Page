@@ -28,9 +28,8 @@
                 </Grid.RowDefinitions>
 
                 <!--Menu Icon-->
-                <Button Style="{StaticResource topButton}" HorizontalAlignment="Left" Margin="20 28 0 35">
-                    <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />
-                </Button>
+                <Image HorizontalAlignment="Left" Height="79" Margin="10,10,0,10" VerticalAlignment="Top" Width="90" Source="/Images/img.png"/>
+
 
                 <Border Grid.Row="1" Background="Orange" CornerRadius="0 30 0 00">
                     <DockPanel>

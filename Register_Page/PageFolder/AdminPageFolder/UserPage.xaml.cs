@@ -78,5 +78,17 @@ namespace Register_Page.PageFolder.AdminPageFolder
                 PasswordDGD.Visibility = Visibility.Visible;
             }
         }
+
+        private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+               .User.Where(u => u.Login
+               .StartsWith(textBoxFilter.Text))
+               .ToList().OrderBy(u => u.Login);
+            if (membersDataGrid.Items.Count <= 0)
+            {
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+            }
+        }
     }
 }
