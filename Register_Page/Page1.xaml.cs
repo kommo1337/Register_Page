@@ -1,11 +1,14 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
+using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Media3D;
+using System.Xml;
 
 namespace Register_Page
 {
@@ -14,9 +17,13 @@ namespace Register_Page
     /// </summary>
     public partial class Page1 : Page
     {
+        XmlDocument load;
+        XmlElement xmlElement;
+
         public Page1()
         {
             InitializeComponent();
+            LoadCredentialsFromXml();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -30,6 +37,77 @@ namespace Register_Page
 
             // Привязка анимации к свойству Opacity элемента (например, Grid или Window)
             MyGrid.BeginAnimation(Grid.OpacityProperty, fadeInAnimation);
+
+            
+        }
+
+        private void LoadCredentialsFromXml()
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"C:\Users\kommo\source\repos\Register_Page\Register_Page\ResourceFolder\LoadFile.xml");
+
+                XmlNode root = doc.SelectSingleNode("Credentials");
+                if (root != null)
+                {
+                    string username = root.SelectSingleNode("Username")?.InnerText;
+                    string password = root.SelectSingleNode("Password")?.InnerText;
+
+                    if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+                    {
+                        LoginTb.Text = username;
+                        PasswordTb.Password = password;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Обработка ошибок чтения файла
+            }
+        }
+
+
+        private void SaveCredentialsToXml(string username, string password)
+        {
+
+
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+
+                if (!RememberChB.IsChecked==true)
+                {
+                    username = null;
+                    password = null;
+                }
+
+                XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                doc.AppendChild(xmlDeclaration);
+
+                XmlElement root = doc.CreateElement("Credentials");
+                doc.AppendChild(root);
+
+                if (username != null)
+                {
+                    XmlElement usernameElement = doc.CreateElement("Username");
+                    usernameElement.InnerText = username;
+                    root.AppendChild(usernameElement);
+                }
+
+                if (password != null)
+                {
+                    XmlElement passwordElement = doc.CreateElement("Password");
+                    passwordElement.InnerText = password;
+                    root.AppendChild(passwordElement);
+                }
+
+                 doc.Save(@"C:\Users\kommo\source\repos\Register_Page\Register_Page\ResourceFolder\LoadFile.xml");
+            }
+            catch (Exception ex)
+            {
+                MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
+            }
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
@@ -62,6 +140,12 @@ namespace Register_Page
                     {
                         case 1:
                             new BaseWindow().Show();
+                            string username = LoginTb.Text;
+                            string password = PasswordTb.Password;
+
+                            // Сохраняем данные в XML файл
+                            SaveCredentialsToXml(username, password);
+
                             foreach (Window window in Application.Current.Windows)
                             {
                                 if (window is Window && window.Title == "Autorisation")
@@ -72,6 +156,10 @@ namespace Register_Page
                             break;
                         case 2:
                             new MenagerBaseWindow().Show();
+                            string username1 = LoginTb.Text;
+                            string password1 = PasswordTb.Password;
+                            SaveCredentialsToXml(username1, password1);
+
                             foreach (Window window in Application.Current.Windows)
                             {
                                 if (window is Window && window.Title == "Autorisation")
