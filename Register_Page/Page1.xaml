@@ -21,8 +21,8 @@
 
             <CheckBox Margin="0 40 0 20" FontSize="14" Foreground="Orange" Name="RememberChB" >
                 <TextBlock>
-                            <Run Foreground="#b6b6b6">Я соглашаюсь с</Run>
-                            <Run Foreground="#FFFFA400">условиями пользователя</Run>
+                            <Run Foreground="#b6b6b6">Запомнить меня в</Run>
+                            <Run Foreground="#FFFFA400">системе</Run>
                 </TextBlock>
             </CheckBox>
 
