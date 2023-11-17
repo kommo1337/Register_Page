@@ -25,6 +25,7 @@ namespace Register_Page.DataFolder
         public string UserEmail { get; set; }
         public Nullable<int> GenderId { get; set; }
         public string Phone { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual Gender Gender { get; set; }

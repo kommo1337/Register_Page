@@ -29,6 +29,8 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             InitializeComponent();
             ClientCb.ItemsSource = DBEntities.GetContext()
                      .Role.ToList();
+            GenderCb.ItemsSource = DBEntities.GetContext()
+                     .Gender.ToList();
         }
 
         public Window GetCurrentWindow()
@@ -60,8 +62,15 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                 {
                     Login = LoginTB.Text,
                     Password = PasswordTB.Text,
-                    RoleId = Int32.Parse(ClientCb.SelectedValue.ToString())
-
+                    RoleId = Int32.Parse(ClientCb.SelectedValue.ToString()),
+                    Adress = AdressTb.Text,
+                    Name = NameTB.Text,
+                    Surname = SurnameTb.Text,
+                    Therdname = TherdNameTb.Text,
+                    UserEmail = EmailTb.Text,
+                    GenderId = Int32.Parse(GenderCb.SelectedValue.ToString()),
+                    Phone = PhoneTb.Text,
+                    Birthday = DateTime.Parse(BTHDatePick.Text)
 
                 });
                 DBEntities.GetContext().SaveChanges();

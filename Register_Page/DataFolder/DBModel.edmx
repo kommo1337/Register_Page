@@ -105,6 +105,7 @@
           <Property Name="UserEmail" Type="nvarchar" MaxLength="30" />
           <Property Name="GenderId" Type="int" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="date" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
@@ -454,6 +455,7 @@
           <Property Name="GenderId" Type="Int32" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender" Relationship="DBModel.FK_User_Gender" FromRole="User" ToRole="Gender" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
@@ -808,6 +810,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="DBModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
