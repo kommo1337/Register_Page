@@ -23,6 +23,10 @@
         <AssociationConnector Association="DBModel.FK_Order_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Worker_Post" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="0.75" PointY="6.5" />
+        <AssociationConnector Association="DBModel.FK_Client_Gender" />
+        <AssociationConnector Association="DBModel.FK_User_Gender" />
+        <AssociationConnector Association="DBModel.FK_Worker_Gender" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

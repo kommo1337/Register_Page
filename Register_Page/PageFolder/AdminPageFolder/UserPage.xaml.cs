@@ -90,5 +90,10 @@ namespace Register_Page.PageFolder.AdminPageFolder
                 MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
             }
         }
+
+        private void modifyIt_Click(object sender, RoutedEventArgs e)
+        {
+            new FulinfoUser(membersDataGrid.SelectedItem as User).Show();
+        }
     }
 }

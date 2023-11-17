@@ -70,5 +70,10 @@ namespace Register_Page.PageFolder.AdminPageFolder
                 MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
             }
         }
+
+        private void membersDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            new FullInfoWorker(membersDataGrid.SelectedItem as Worker).Show();
+        }
     }
 }

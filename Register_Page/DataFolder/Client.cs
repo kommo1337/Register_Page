@@ -28,10 +28,13 @@ namespace Register_Page.DataFolder
         public string Phone { get; set; }
         public string Email { get; set; }
         public System.DateTime Birthday { get; set; }
+        public Nullable<int> GenderId { get; set; }
+        public string Adress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Auto> Auto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        public virtual Gender Gender { get; set; }
     }
 }

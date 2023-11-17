@@ -377,7 +377,7 @@
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="50 10 50 10">
 
                 </Frame>
-                <Image Source="/Images/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource iconApp}"/>
+                <Image Source="/Images/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource iconApp}" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
                 <Image Source="/Images/minimize.png" Width="20" Margin="0 7 40 0" Style="{StaticResource iconApp}"/>
 
             </Grid>

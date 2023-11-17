@@ -47,36 +47,36 @@
                         <StackPanel DockPanel.Dock="Top" x:Name="BorderButtonSP">
                             <Button Style="{StaticResource menuButton}" Click="Button_Click" >
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Авто"/>
+                                    <Icon:PackIconMaterial Kind="car" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Автомобиль"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="CalendarClock" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="HumanQueue" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Клиенты"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}"  Foreground="White" Click="Button_Click_2" >
                                 <StackPanel Orientation="Horizontal" >
-                                    <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="Basket" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Заказы"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Click="Button_Click_3">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="CashMultiple" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="AccountGroup" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Пользователи"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Click="Button_Click_4">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Рабочие"/>
+                                    <Icon:PackIconMaterial Kind="AccountHardHat" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Сотрудники"/>
                                 </StackPanel>
                             </Button>
 

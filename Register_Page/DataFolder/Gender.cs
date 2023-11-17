@@ -12,24 +12,24 @@ namespace Register_Page.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Auto
+    public partial class Gender
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Auto()
+        public Gender()
         {
-            this.Order = new HashSet<Order>();
+            this.Client = new HashSet<Client>();
+            this.User = new HashSet<User>();
+            this.Worker = new HashSet<Worker>();
         }
     
-        public int AutoId { get; set; }
-        public int ClientId { get; set; }
-        public string GosNomer { get; set; }
-        public string VIN { get; set; }
-        public int Mileage { get; set; }
-        public int Age { get; set; }
-        public string Model { get; set; }
+        public int GenderId { get; set; }
+        public string GenderName { get; set; }
     
-        public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Client> Client { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Worker> Worker { get; set; }
     }
 }

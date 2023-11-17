@@ -61,6 +61,11 @@
 
         </Grid>
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" Grid.Row="5" MouseDoubleClick="membersDataGrid_MouseDoubleClick">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Полная информация" x:Name="modifyIt" Click="modifyIt_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding UserId}"/>
                 <DataGridTemplateColumn Header="Логин" IsReadOnly="True" Width="*">
@@ -77,7 +82,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" IsReadOnly="True" Width="*" Visibility="Collapsed" x:Name="PasswordDGD"/>
-                <DataGridTextColumn Header="Роль" Binding="{Binding Role.RoleId}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.RoleName}" IsReadOnly="True" Width="*"/>
                 
 
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">

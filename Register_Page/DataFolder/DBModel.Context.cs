@@ -29,6 +29,7 @@ namespace Register_Page.DataFolder
             return context;
         }
 
+
         public DBEntities()
             : base("name=DBEntities")
         {
@@ -49,6 +50,7 @@ namespace Register_Page.DataFolder
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

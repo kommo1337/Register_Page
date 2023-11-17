@@ -145,6 +145,9 @@ namespace Register_Page
             //MainFrame.Navigate(new Page1());
         }
 
-
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

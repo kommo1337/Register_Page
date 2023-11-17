@@ -63,7 +63,7 @@ namespace Register_Page
             }
             catch (Exception ex)
             {
-                // Обработка ошибок чтения файла
+                MBClass.ErrorMB(ex);
             }
         }
 

@@ -47,21 +47,21 @@
                         <StackPanel DockPanel.Dock="Top" x:Name="BorderButtonSP">
                             <Button Style="{StaticResource menuButton}" Click="Button_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="car" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Авто" />
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="CalendarClock" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="HumanQueue" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Клиенты"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}"  Foreground="White" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
+                                    <Icon:PackIconMaterial Kind="Basket" Style="{StaticResource menuButtonIcon}"/>
                                     <TextBlock Text="Заказы"/>
                                 </StackPanel>
                             </Button>

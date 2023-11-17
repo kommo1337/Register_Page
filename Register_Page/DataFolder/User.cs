@@ -18,7 +18,15 @@ namespace Register_Page.DataFolder
         public string Login { get; set; }
         public string Password { get; set; }
         public int RoleId { get; set; }
+        public string Adress { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Therdname { get; set; }
+        public string UserEmail { get; set; }
+        public Nullable<int> GenderId { get; set; }
+        public string Phone { get; set; }
     
         public virtual Role Role { get; set; }
+        public virtual Gender Gender { get; set; }
     }
 }

@@ -113,6 +113,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClassFolder\DateStorage.cs" />
     <Compile Include="ClassFolder\ExportClass.cs" />
     <Compile Include="ClassFolder\MBClass.cs" />
     <Compile Include="DataFolder\Auto.cs">
@@ -135,6 +136,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Gender.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\Order.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -180,6 +184,15 @@
     </Compile>
     <Compile Include="PageFolder\AdminEditPageFolder\EditUserPage.xaml.cs">
       <DependentUpon>EditUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminEditPageFolder\FulinfoUser.xaml.cs">
+      <DependentUpon>FulinfoUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminEditPageFolder\FullInfoCLient.xaml.cs">
+      <DependentUpon>FullInfoCLient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminEditPageFolder\FullInfoWorker.xaml.cs">
+      <DependentUpon>FullInfoWorker.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MyOption.xaml.cs">
       <DependentUpon>MyOption.xaml</DependentUpon>
@@ -256,6 +269,18 @@
     <Page Include="PageFolder\AdminEditPageFolder\EditZakazPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageFolder\AdminEditPageFolder\FulinfoUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminEditPageFolder\FullInfoCLient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminEditPageFolder\FullInfoWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\AdminPageFolder\AvtoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
