@@ -94,7 +94,6 @@
 
             </StackPanel>
 
-
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="290,0,0,0" Grid.Row="2" Width="120">
                 <Button Content="Добавить" Background="#FFFFD500"  Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120" BorderBrush="#FFF3CD1C" Click="Button_Click"/>
             </StackPanel>
@@ -103,8 +102,6 @@
 
 
             </Border>
-
-
 
         </Grid>
     </Border>

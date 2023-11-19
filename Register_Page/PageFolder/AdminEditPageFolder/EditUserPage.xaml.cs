@@ -36,6 +36,9 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
 
             ClientCb.ItemsSource = DBEntities.GetContext()
                     .Role.ToList();
+
+            GenderCb.ItemsSource = DBEntities.GetContext()
+        .Gender.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,11 +46,20 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             try
             {
                 int index = ClientCb.SelectedIndex + 1;
+                int index2 = GenderCb.SelectedIndex + 1;   
                 user = DBEntities.GetContext().User
                     .FirstOrDefault(u => u.UserId == user.UserId);
                 user.Login = LoginTB.Text;
                 user.Password = PasswordTB.Text;
                 user.RoleId = index;
+                user.Adress = AdressTb.Text;
+                user.Name = NameTB.Text;
+                user.Surname = SurnameTb.Text;
+                user.Therdname = TherdNameTb.Text;
+                user.UserEmail = EmailTb.Text;
+                user.GenderId = index2;
+                user.Phone = PhoneTb.Text;
+                user.Birthday = DateTime.Parse(BTHDatePick.Text);
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;
