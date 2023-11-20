@@ -85,5 +85,6 @@
             </Grid>
         </Border>
         <Button Content="Назад" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click"/>
+
     </Grid>
 </Window>

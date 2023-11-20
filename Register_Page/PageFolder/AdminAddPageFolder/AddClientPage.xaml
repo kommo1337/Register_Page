@@ -31,7 +31,7 @@
 
 
             <!--Inputs-->
-            <StackPanel VerticalAlignment="Top" Margin="15,70,15,0"  Grid.Row="1"  >
+            <StackPanel VerticalAlignment="Top" Margin="15,70,15,0"  Grid.Row="1" Height="253" Grid.RowSpan="2"  >
 
                 <TextBox BorderThickness="0 0 0 1.5" Name="PhoneTb" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Телефон"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
 
@@ -44,13 +44,18 @@
                     <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Дата рождения" Foreground="#FF707070"/>
                     <DatePicker Style="{StaticResource MaterialDesignDatePicker}" Margin="130 9 0 0" Name="BTHDatePick"/>
 
+                    
                 </StackPanel>
-
+                <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Гендер" Margin="0 5 0 10" FontSize="16" Name="GenderCb"
+                        ItemsSource="{Binding Gender}" DisplayMemberPath="GenderName"
+                        SelectedValuePath="GenderId"
+                        SelectedValue="{Binding Path=RoleId}"/>
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="15,70,15,15" Grid.Row="1" >
+            <StackPanel Grid.Column="1" Margin="15,70,15,106" Grid.Row="1" Grid.RowSpan="2" >
                 <TextBox BorderThickness="0 0 0 1.5" Name="NameTb" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Имя"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
                 <TextBox BorderThickness="0 0 0 1.5" Name="SurNameTb" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Фамилия"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
                 <TextBox BorderThickness="0 0 0 1.5" Name="TherdNameTb" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Отчество"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
+                <TextBox BorderThickness="0 0 0 1.5" Name="AdressTb" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Адрес"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange" Height="53"/>
 
             </StackPanel>
 
@@ -60,7 +65,7 @@
             </StackPanel>
 
             <Border Grid.ColumnSpan="2" Background="#FFFFD500" CornerRadius="30 30 0 0">
-                
+
             </Border>
         </Grid>
     </Border>

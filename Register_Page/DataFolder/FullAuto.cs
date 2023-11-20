@@ -12,25 +12,21 @@ namespace Register_Page.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Auto
+    public partial class FullAuto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Auto()
+        public FullAuto()
         {
-            this.Order = new HashSet<Order>();
+            this.Auto = new HashSet<Auto>();
         }
     
-        public int AutoId { get; set; }
-        public int ClientId { get; set; }
-        public string GosNomer { get; set; }
-        public string VIN { get; set; }
-        public int Mileage { get; set; }
-        public int Age { get; set; }
-        public Nullable<int> FullAutoId { get; set; }
+        public int FullAutoId { get; set; }
+        public int MarkaId { get; set; }
+        public int ModelId { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual FullAuto FullAuto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Auto> Auto { get; set; }
+        public virtual MarkaAuto MarkaAuto { get; set; }
+        public virtual ModelAuto ModelAuto { get; set; }
     }
 }

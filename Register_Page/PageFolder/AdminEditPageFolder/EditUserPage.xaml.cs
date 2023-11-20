@@ -3,19 +3,9 @@ using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Register_Page.PageFolder.AdminEditPageFolder
 {
@@ -46,7 +36,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             try
             {
                 int index = ClientCb.SelectedIndex + 1;
-                int index2 = GenderCb.SelectedIndex + 1;   
+                int index2 = GenderCb.SelectedIndex + 1;
                 user = DBEntities.GetContext().User
                     .FirstOrDefault(u => u.UserId == user.UserId);
                 user.Login = LoginTB.Text;

@@ -80,7 +80,17 @@
                 <DataGridTextColumn Header="VIN" Binding="{Binding VIN}" IsReadOnly="True" Width="*"/>
                 <DataGridTextColumn Header="Пробег" Binding="{Binding Mileage}" IsReadOnly="True" Width="*"/>
                 <DataGridTextColumn Header="Год выпуска" Binding="{Binding Age}" IsReadOnly="True" Width="*"/>
-                
+                <DataGridTemplateColumn Header="Автомобиль" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                        <Run Text="{Binding FullAuto.MarkaAuto.NameMarka}"/>
+                        <Run Text=" " />
+                        <Run Text="{Binding FullAuto.ModelAuto.ModelName}"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Операция" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

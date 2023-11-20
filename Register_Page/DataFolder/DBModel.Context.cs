@@ -29,6 +29,7 @@ namespace Register_Page.DataFolder
             return context;
         }
 
+
         public DBEntities()
             : base("name=DBEntities")
         {
@@ -41,6 +42,10 @@ namespace Register_Page.DataFolder
     
         public virtual DbSet<Auto> Auto { get; set; }
         public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<FullAuto> FullAuto { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<MarkaAuto> MarkaAuto { get; set; }
+        public virtual DbSet<ModelAuto> ModelAuto { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Role> Role { get; set; }
@@ -49,7 +54,7 @@ namespace Register_Page.DataFolder
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
-        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<FullAutoView> FullAutoView { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

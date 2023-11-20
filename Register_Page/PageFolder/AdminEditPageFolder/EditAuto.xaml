@@ -52,7 +52,25 @@
             <StackPanel Grid.Column="1" Margin="15,70,15,15" Grid.Row="1" >
                 <TextBox Name="ProbegTB" Text="{Binding Mileage}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Пробег"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
                 <TextBox Name="GODVIPUSKATB" Text="{Binding Age}" BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" materialDesign:HintAssist.Hint="Год выпуска"  Margin="0 5 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16"  materialDesign:TextFieldAssist.UnderlineBrush="Orange" materialDesign:HintAssist.Foreground="Orange"/>
-
+                <ComboBox x:Name="AutoCb" FontSize="16"
+           materialDesign:HintAssist.Hint="Автомобиль" 
+           Margin="0 5 0 10" 
+           Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+           Width="310"
+         ItemsSource="{Binding FullAuto}"
+         SelectedValuePath="FullAutoId"
+         SelectedValue="{Binding Path=FullAutoId}"
+           >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                 <Run Text="{Binding MarkaAuto.NameMarka}"/>
+                 <Run Text=" " />
+                 <Run Text="{Binding ModelAuto.ModelName}"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
 
 

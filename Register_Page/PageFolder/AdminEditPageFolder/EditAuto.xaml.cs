@@ -29,6 +29,8 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
 
             ClientCb.ItemsSource = DBEntities.GetContext()
                     .Client.ToList();
+            AutoCb.ItemsSource = DBEntities.GetContext()
+                    .FullAuto.ToList();
         }
 
         public Window GetCurrentWindow()
@@ -56,12 +58,14 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             try
             {
                 int index = ClientCb.SelectedIndex + 1;
+                int index2 = AutoCb.SelectedIndex + 1;
                 auto = DBEntities.GetContext().Auto
                     .FirstOrDefault(u => u.AutoId == auto.AutoId);
                 auto.GosNomer = GosNomerTB.Text;
                 auto.VIN = VINTB.Text;
                 auto.Mileage = int.Parse(ProbegTB.Text);
                 auto.ClientId = index;
+                auto.FullAutoId = index2;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 Window currentWindow = GetCurrentWindow() as Window;

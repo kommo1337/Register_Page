@@ -18,7 +18,7 @@ namespace Register_Page.PageFolder.AdminPageFolder
         public AvtoPage()
         {
             InitializeComponent();
-            
+
             membersDataGrid.ItemsSource = DBEntities.GetContext().Auto.
                     ToList().OrderBy(u => u.AutoId);
         }
@@ -63,7 +63,7 @@ namespace Register_Page.PageFolder.AdminPageFolder
                     (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditAuto(membersDataGrid.SelectedItem as Auto));
                     (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
                 }
-            }  
+            }
         }
 
         private void DeleteInGridBTN_Click(object sender, RoutedEventArgs e)
@@ -100,21 +100,21 @@ namespace Register_Page.PageFolder.AdminPageFolder
         private void AddBTN2_Click(object sender, RoutedEventArgs e)
         {
 
-              (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
-                (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
+            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame2.Navigate(new AddAutoPage());
+            (App.Current.Windows[0] as MenagerBaseWindow).MainFrame.Content = null;
 
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var item in App.Current.Windows) 
+            foreach (var item in App.Current.Windows)
             {
                 if ((item as Window).Title == "MenagerWindow")
                 {
                     AddBTN.Click -= AddBTN_Click;
                     AddBTN.Click += AddBTN2_Click;
                 }
-                
+
             }
         }
 

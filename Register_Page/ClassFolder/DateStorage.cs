@@ -1,19 +1,13 @@
-﻿using Microsoft.Office.Interop.Excel;
-using Register_Page.DataFolder;
-using Register_Page.PageFolder.AdminPageFolder;
-using Register_Page.WindowFolder;
-using System;
+﻿using Register_Page.DataFolder;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Register_Page.ClassFolder
 {
     class DateStorage
     {
         private List<Client> deletedClients = new List<Client>();
-        
+
 
         public void ArchiveClient(Client client)
         {

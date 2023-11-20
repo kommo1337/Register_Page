@@ -19,6 +19,8 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             InitializeComponent();
             PostCb.ItemsSource = DBEntities.GetContext()
                  .Post.ToList();
+            GenderCb.ItemsSource = DBEntities.GetContext()
+                 .Gender.ToList();
         }
 
         public Window GetCurrentWindow()
@@ -49,12 +51,15 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
 
                 DBEntities.GetContext().Worker.Add(new Worker()
                 {
-                    Name = NameTb.Text,
-                    Surname = SurNameTb.Text,
+                    Name = NameTB.Text,
+                    Surname = SurnameTb.Text,
                     Therdname = TherdNameTb.Text,
                     PostId = Int32.Parse(PostCb.SelectedValue.ToString()),
-                    Pasport = PasportTb.Text,
-                    Phone = PhoneTb.Text
+                    Pasport = PasportTB.Text,
+                    Phone = PhoneTb.Text,
+                    GenderId = Int32.Parse(GenderCb.SelectedValue.ToString()),
+                    Adress = AdressTb.Text,
+                    Email = EmailTb.Text
                 });
                 DBEntities.GetContext().SaveChanges();
 

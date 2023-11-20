@@ -56,22 +56,19 @@
                         <TextBlock Text="{Binding Phone}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
-                        <TextBlock Text="Паспорт:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{Binding Pasport}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </StackPanel>
+
 
                     <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
                         <TextBlock Text="Адрес" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         <TextBlock Text="{Binding Adress}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
                         <TextBlock Text="Гендер" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         <TextBlock Text="{Binding Gender.GenderName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
                         <TextBlock Text="Почта" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                         <TextBlock Text="{Binding Email}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </StackPanel>
@@ -79,6 +76,6 @@
                 </Grid>
             </Grid>
         </Border>
-        <Button Content="Назад" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" />
     </Grid>
 </Window>

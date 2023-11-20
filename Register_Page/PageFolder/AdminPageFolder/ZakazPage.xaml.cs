@@ -115,7 +115,18 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void textBoxFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
+            membersDataGrid.ItemsSource = DBEntities.GetContext()
+    .Order
+    .Where(order => order.Client.Name.StartsWith(textBoxFilter.Text)) 
+    .ToList()
+    .OrderBy(order => order.Client.Name);
+
+
+            if (membersDataGrid.Items.Count <= 0)
+            {
+                MBClass.ShowErrorPopup("Данные не найдены", Application.Current.MainWindow);
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

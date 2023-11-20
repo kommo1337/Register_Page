@@ -1,13 +1,11 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
-using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Media3D;
 using System.Xml;
 
 namespace Register_Page
@@ -38,7 +36,7 @@ namespace Register_Page
             // Привязка анимации к свойству Opacity элемента (например, Grid или Window)
             MyGrid.BeginAnimation(Grid.OpacityProperty, fadeInAnimation);
 
-            
+
         }
 
         private void LoadCredentialsFromXml()
@@ -76,7 +74,7 @@ namespace Register_Page
             {
                 XmlDocument doc = new XmlDocument();
 
-                if (!RememberChB.IsChecked==true)
+                if (!RememberChB.IsChecked == true)
                 {
                     username = null;
                     password = null;
@@ -102,7 +100,7 @@ namespace Register_Page
                     root.AppendChild(passwordElement);
                 }
 
-                 doc.Save(@"C:\Users\kommo\source\repos\Register_Page\Register_Page\ResourceFolder\LoadFile.xml");
+                doc.Save(@"C:\Users\kommo\source\repos\Register_Page\Register_Page\ResourceFolder\LoadFile.xml");
             }
             catch (Exception ex)
             {
@@ -178,6 +176,6 @@ namespace Register_Page
             }
         }
 
-        
+
     }
 }

@@ -3,10 +3,9 @@ using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
-using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace Register_Page.PageFolder.AdminAddPageFolder
 {
@@ -18,6 +17,10 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
         public AddClientPage()
         {
             InitializeComponent();
+
+            GenderCb.ItemsSource = DBEntities.GetContext()
+                    .Gender.ToList();
+
         }
 
         public Window GetCurrentWindow()
@@ -47,17 +50,20 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             {
                 string dateString = BTHDatePick.SelectedDate.ToString();
 
-                
-                    DBEntities.GetContext().Client.Add(new Client()
-                    {
-                        Name = NameTb.Text,
-                        Surname = SurNameTb.Text, 
-                        Therdname = TherdNameTb.Text,
-                        Birthday = DateTime.Parse(BTHDatePick.Text),
-                        Email = EmailTb.Text,
-                        Phone = PhoneTb.Text
-                    });
-                    DBEntities.GetContext().SaveChanges();
+
+                DBEntities.GetContext().Client.Add(new Client()
+                {
+                    Name = NameTb.Text,
+                    Surname = SurNameTb.Text,
+                    Therdname = TherdNameTb.Text,
+                    Birthday = DateTime.Parse(BTHDatePick.Text),
+                    Email = EmailTb.Text,
+                    Phone = PhoneTb.Text,
+                    GenderId = Int32.Parse(GenderCb.SelectedValue.ToString()),
+                    Adress = AdressTb.Text
+
+                });
+                DBEntities.GetContext().SaveChanges();
 
                 Window currentWindow = GetCurrentWindow() as Window;
                 if (currentWindow is MenagerBaseWindow)
@@ -75,7 +81,7 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-                
+
             }
         }
     }

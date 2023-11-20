@@ -3,11 +3,9 @@ using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace Register_Page.PageFolder.AdminAddPageFolder
 {
@@ -69,8 +67,8 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                     WorkerId = Int32.Parse(WorkerCb.SelectedValue.ToString()),
                     Price = 1
 
-                }) ;
-                    DBEntities.GetContext().SaveChanges();
+                });
+                DBEntities.GetContext().SaveChanges();
                 Window currentWindow = GetCurrentWindow() as Window;
                 if (currentWindow is MenagerBaseWindow)
                 {
@@ -89,7 +87,7 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
             catch (Exception ex)
             {
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
-                
+
             }
 
         }

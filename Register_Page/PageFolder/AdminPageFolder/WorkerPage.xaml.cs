@@ -75,5 +75,10 @@ namespace Register_Page.PageFolder.AdminPageFolder
         {
             new FullInfoWorker(membersDataGrid.SelectedItem as Worker).Show();
         }
+
+        private void modifyIt_Click(object sender, RoutedEventArgs e)
+        {
+            new FullInfoWorker(membersDataGrid.SelectedItem as Worker).Show();
+        }
     }
 }

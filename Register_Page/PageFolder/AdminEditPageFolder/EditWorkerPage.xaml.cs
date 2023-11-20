@@ -25,6 +25,8 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
 
             PostCb.ItemsSource = DBEntities.GetContext()
                .Post.ToList();
+            GenderCb.ItemsSource = DBEntities.GetContext()
+              .Gender.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,15 +34,18 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             try
             {
                 int index = PostCb.SelectedIndex + 1;
+                int index2 = GenderCb.SelectedIndex + 1;
                 worker = DBEntities.GetContext().Worker
                     .FirstOrDefault(u => u.WorkerId == worker.WorkerId);
-                worker.Name = NameTb.Text;
-                worker.Surname = SurNameTb.Text;
+                worker.Name = NameTB.Text;
+                worker.Surname = SurnameTb.Text;
                 worker.Therdname = TherdNameTb.Text;
                 worker.Phone = PhoneTb.Text;
-                worker.Pasport = PasportTb.Text;
+                worker.Pasport = PasportTB.Text;
                 worker.PostId = index;
-
+                worker.GenderId = index2;
+                worker.Email = EmailTb.Text;
+                worker.Adress = AdressTb.Text;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 (App.Current.Windows[0] as BaseWindow).MainFrame2.Content = null;

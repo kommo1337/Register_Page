@@ -21,6 +21,9 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
             DataContext = client;
 
             this.client.ClientId = client.ClientId;
+
+            GenderCb.ItemsSource = DBEntities.GetContext()
+        .Gender.ToList();
         }
 
         public Window GetCurrentWindow()
@@ -47,7 +50,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
         {
             try
             {
-
+                int index2 = GenderCb.SelectedIndex + 1;
                 client = DBEntities.GetContext().Client
                     .FirstOrDefault(u => u.ClientId == client.ClientId);
                 client.Name = NameTb.Text;
@@ -56,7 +59,8 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
                 client.Phone = PhoneTb.Text;
                 client.Email = EmailTb.Text;
                 client.Birthday = (DateTime)BTHDatePick.SelectedDate;
-
+                client.GenderId = index2;
+                client.Adress = AdressTb.Text;
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);
                 Window currentWindow = GetCurrentWindow() as Window;

@@ -30,12 +30,12 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void EditInGrid_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (membersDataGrid.SelectedItem!=null)
+            if (membersDataGrid.SelectedItem != null)
             {
-                
-            
-            (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
-            (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditUserPage(membersDataGrid.SelectedItem as User));
+
+
+                (App.Current.Windows[0] as BaseWindow).MainFrame.Content = null;
+                (App.Current.Windows[0] as BaseWindow).MainFrame2.Navigate(new EditUserPage(membersDataGrid.SelectedItem as User));
             }
             else
             {

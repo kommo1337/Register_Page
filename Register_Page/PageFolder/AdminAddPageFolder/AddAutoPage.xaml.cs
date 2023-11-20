@@ -4,9 +4,9 @@ using Register_Page.PageFolder.AdminPageFolder;
 using Register_Page.WindowFolder;
 using System;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace Register_Page.PageFolder.AdminAddPageFolder
 {
@@ -15,11 +15,16 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
     /// </summary>
     public partial class AddAutoPage : Page
     {
+        private DBEntities context;
+
         public AddAutoPage()
         {
             InitializeComponent();
+            context = DBEntities.GetContext();
             ClientCb.ItemsSource = DBEntities.GetContext()
                .Client.ToList();
+            AutoCb.ItemsSource = DBEntities.GetContext()
+                .FullAuto.ToList();
         }
 
 
@@ -56,6 +61,8 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                     ClientId = Int32.Parse(ClientCb.SelectedValue.ToString()),
                     Mileage = Int32.Parse(ProbegTB.Text),
                     Age = Int32.Parse(GODVIPUSKATB.Text),
+                    FullAutoId = Int32.Parse(AutoCb.SelectedValue.ToString()),
+
 
                 });
                 DBEntities.GetContext().SaveChanges();
@@ -77,7 +84,7 @@ namespace Register_Page.PageFolder.AdminAddPageFolder
                 MBClass.ShowErrorPopup(ex.Message, Application.Current.MainWindow);
                 throw;
             }
-        
-    }
+
+        }
     }
 }

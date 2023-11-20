@@ -1,11 +1,11 @@
 ﻿using Register_Page.ClassFolder;
 using Register_Page.DataFolder;
 using Register_Page.PageFolder.AdminPageFolder;
-using System.Linq;
-using System;
-using System.Windows.Controls;
-using System.Windows;
 using Register_Page.WindowFolder;
+using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Register_Page.PageFolder.AdminEditPageFolder
 {
@@ -33,7 +33,7 @@ namespace Register_Page.PageFolder.AdminEditPageFolder
                     .FirstOrDefault(u => u.ServiceId == service.ServiceId);
                 service.ServiceName = NameServiceTb.Text;
                 service.ServicePrice = decimal.Parse(PriceTb.Text);
-                
+
 
                 DBEntities.GetContext().SaveChanges();
                 MBClass.ShowMesagePopup("Успешно", Application.Current.MainWindow);

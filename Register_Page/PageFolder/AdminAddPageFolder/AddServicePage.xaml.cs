@@ -5,7 +5,6 @@ using Register_Page.WindowFolder;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace Register_Page.PageFolder.AdminAddPageFolder
 {

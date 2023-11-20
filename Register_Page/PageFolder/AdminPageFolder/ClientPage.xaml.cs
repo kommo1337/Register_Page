@@ -65,11 +65,11 @@ namespace Register_Page.PageFolder.AdminPageFolder
 
         private void DeleteInGrid_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-           
+
 
             Client auto = membersDataGrid.SelectedItem as Client;
 
-            
+
 
             DBEntities.GetContext().Client
                         .Remove(membersDataGrid.SelectedItem as Client);
@@ -128,6 +128,12 @@ namespace Register_Page.PageFolder.AdminPageFolder
         }
 
         private void membersDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            new FullInfoCLient(membersDataGrid.SelectedItem as Client).Show();
+
+        }
+
+        private void modifyIt_Click(object sender, RoutedEventArgs e)
         {
             new FullInfoCLient(membersDataGrid.SelectedItem as Client).Show();
 
