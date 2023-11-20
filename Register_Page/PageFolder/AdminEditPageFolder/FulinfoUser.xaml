@@ -59,7 +59,7 @@
 
                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
                         <TextBlock Text="Паспорт:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{Binding Passport}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding Phone}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
