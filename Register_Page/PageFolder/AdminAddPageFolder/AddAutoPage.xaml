@@ -27,7 +27,7 @@
 
 
             </StackPanel>
-            <TextBlock Text="Добавления авто" Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="32"   Panel.ZIndex="5"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Добавления автомобиля" Style="{StaticResource MaterialDesignHeadline6TextBlock}" FontSize="32"   Panel.ZIndex="5"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
             <!--Inputs-->
